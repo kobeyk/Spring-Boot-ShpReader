@@ -1,8 +1,10 @@
 package com.appleyk;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.web.context.annotation.ApplicationScope;
 
 /**
  * 
@@ -20,7 +22,8 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
  * @date 2018年4月24日08:59:07
  */
 
-public class Application extends SpringBootServletInitializer{
+@SpringBootApplication
+public class Application extends SpringBootServletInitializer {
 
 	/**
 	 * SpringApplication类提供了一种从main()方法启动Spring应用的便捷方式。 在很多情况下， 你只需委托给
@@ -28,7 +31,6 @@ public class Application extends SpringBootServletInitializer{
 	 * 
 	 * @param args
 	 */
-
 	public static void  main(String[] args) {
         		
 		SpringApplication.run(Application.class, args);

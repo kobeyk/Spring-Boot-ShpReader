@@ -1,20 +1,11 @@
 package com.appleyk.geotools;
 
-import java.util.List;
 
-import com.vividsolutions.jts.geom.Coordinate;
-import com.vividsolutions.jts.geom.Geometry;
-import com.vividsolutions.jts.geom.GeometryCollection;
-import com.vividsolutions.jts.geom.GeometryFactory;
-import com.vividsolutions.jts.geom.LineString;
-import com.vividsolutions.jts.geom.LinearRing;
-import com.vividsolutions.jts.geom.MultiLineString;
-import com.vividsolutions.jts.geom.MultiPoint;
-import com.vividsolutions.jts.geom.MultiPolygon;
-import com.vividsolutions.jts.geom.Point;
-import com.vividsolutions.jts.geom.Polygon;
-import com.vividsolutions.jts.io.ParseException;
-import com.vividsolutions.jts.io.WKTReader;
+import org.locationtech.jts.geom.*;
+import org.locationtech.jts.io.ParseException;
+import org.locationtech.jts.io.WKTReader;
+
+import java.util.List;
 
 /**
  * 几何对象构建器
@@ -58,7 +49,7 @@ public class GeometryCreator {
 	 * @return
 	 */
 	public Point createPoint(double x,double y){    
-        Coordinate coord = new Coordinate(x, y);    
+        Coordinate coord = new Coordinate(x, y);
         Point point = geometryFactory.createPoint(coord);    
         return point;    
     }   
@@ -68,8 +59,8 @@ public class GeometryCreator {
 	 * @return
 	 * @throws ParseException
 	 */
-	public Point createPointByWKT(String PointWKT) throws ParseException{    
-        WKTReader reader = new WKTReader(geometryFactory);    
+	public Point createPointByWKT(String PointWKT) throws ParseException {
+        WKTReader reader = new WKTReader(geometryFactory);
         Point point = (Point) reader.read(PointWKT);    
         return point;    
     }   
@@ -122,7 +113,7 @@ public class GeometryCreator {
      * @param list
      * @return
      */
-    public MultiLineString createMLine(List<Coordinate[]> list){    
+    public MultiLineString createMLine(List<Coordinate[]> list){
     	
     	MultiLineString ms = null;
     	
@@ -188,7 +179,7 @@ public class GeometryCreator {
      * @return
      * @throws ParseException
      */
-    public MultiPolygon createMulPolygonByWKT(String MPolygonWKT) throws ParseException{    
+    public MultiPolygon createMulPolygonByWKT(String MPolygonWKT) throws ParseException{
         WKTReader reader = new WKTReader( geometryFactory );    
         MultiPolygon mpolygon = (MultiPolygon) reader.read(MPolygonWKT);    
         return mpolygon;    
@@ -215,7 +206,7 @@ public class GeometryCreator {
      * @return
      * @throws ParseException
      */
-    public GeometryCollection createGeoCollect(Geometry[] geoArray) throws ParseException{    
+    public GeometryCollection createGeoCollect(Geometry[] geoArray) throws ParseException{
 //            LineString line = createLine(125.12,25.4,85.63,99.99);    
 //            Polygon poly    =  createPolygonByWKT("POLYGON((20 10, 30 0, 40 10, 30 20, 20 10))");    
 //            Geometry g1     = geometryFactory.createGeometry(line);    
@@ -251,7 +242,7 @@ public class GeometryCreator {
         }    
         coords[SIDES] = coords[0];    
         //线性环
-        LinearRing ring = geometryFactory.createLinearRing(coords);    
+        LinearRing ring = geometryFactory.createLinearRing(coords);
         Polygon polygon = geometryFactory.createPolygon(ring, null);    
         return polygon;    
     }   

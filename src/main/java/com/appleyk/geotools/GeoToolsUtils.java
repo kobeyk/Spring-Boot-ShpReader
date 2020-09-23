@@ -40,14 +40,14 @@ import org.geotools.styling.SLD;
 import org.geotools.styling.Style;
 import org.geotools.swing.JMapFrame;
 import org.geotools.swing.data.JFileDataStoreChooser;
+import org.locationtech.jts.geom.Geometry;
+import org.locationtech.jts.geom.GeometryFactory;
+import org.locationtech.jts.geom.MultiPolygon;
 import org.opengis.feature.Property;
 import org.opengis.feature.simple.SimpleFeature;
 import org.opengis.feature.simple.SimpleFeatureType;
 
 import com.appleyk.entity.ShpGeometry;
-import com.vividsolutions.jts.geom.Geometry;
-import com.vividsolutions.jts.geom.GeometryFactory;
-import com.vividsolutions.jts.geom.MultiPolygon;
 
 public class GeoToolsUtils {
 
@@ -378,7 +378,7 @@ public class GeoToolsUtils {
 	 * 将几何对象信息写入一个shapfile文件并读取
 	 * @throws Exception
 	 */
-	public static void writeSHP(String path,Geometry geometry) throws Exception{
+	public static void writeSHP(String path, Geometry geometry) throws Exception{
 		
 		//String path="C:\\my.shp";
 		
@@ -475,7 +475,7 @@ public class GeoToolsUtils {
 
 		System.out.println("===============连接postgis空间数据库==============");
 		connPostGis("postgis", "192.168.1.104", 5432, "test", "postgres", "bluethink");
-		
+
 		System.out.println("===============读取shp文件并存储至postgresql数据库==============");	
 		// A.建筑物的shapefile，多边形 MULTIPOLYGON
 		// String path = "E:\\china-latest-free\\gis.osm_buildings_a_free_1.shp";
