@@ -15,7 +15,7 @@
 	<!-- 約定geotools工具包版本號和postgresql数据库版本号 -->
 	<properties>
 		<geotools.version>20.0</geotools.version>
-		<postgresql.version>42.1.4</postgresql.version>
+		<postgresql.version>42.3.3</postgresql.version>
 	</properties>
 	<repositories>
 		<repository>
